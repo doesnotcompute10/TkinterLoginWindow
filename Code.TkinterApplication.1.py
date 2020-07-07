@@ -1,12 +1,11 @@
 from tkinter import *
-import random
 
 logonwin = Tk()
-username="travisje26"
-password="pythonissohard10"
+username = "github_online_repo"
+password = "pythonissohard10"
 
-usernameInn = Entry(logonwin, width=50)
-usernameInn.grid(row=1, column=0)
+username_inn = Entry(logonwin, width=50)
+username_inn.grid(row=1, column=0)
 
 usernameAnn = Label(logonwin, text="Username:")
 usernameAnn.grid(row=0, column=0)
@@ -17,19 +16,20 @@ passwordInn.grid(row=1, column=1)
 passwordAnn = Label(logonwin, text="Password:")
 passwordAnn.grid(row=0, column=1)
 
+
 def checkCredentials():
     global score
     score = 0
-    usernameIn = usernameInn.get()
-    passwordIn = passwordInn.get()
+    username_in = username_inn.get()
+    passwordIn = password_inn.get()
 
-    if usernameIn == username:
-        score = score+1
+    if username_in == username:
+        score = score + 1
     else:
         print(" ")
 
-    if passwordIn == password:
-        score = score+1
+    if password_in == password:
+        score = score + 1
     else:
         print(" ")
 
@@ -37,6 +37,7 @@ def checkCredentials():
         print("Activated")
     else:
         print("Fail, please try again later")
+
 
 userCheck = Button(logonwin, text="Logon", command=checkCredentials)
 userCheck.grid(row=1, column=2)
