@@ -16,6 +16,8 @@ password_inn.grid(row=1, column=1)
 password_ann = Label(logonwin, text="Password:", font=5)
 password_ann.grid(row=0, column=1)
 
+correct_answer = Label(logonwin, text="Sucsess", fg="green")
+incorrect_answer = Label(logonwin, text="Fail, please retry", fg="red")
 
 def checkCredentials():
     global score
@@ -32,9 +34,9 @@ def checkCredentials():
         print(" ")
 
     if score == 2:
-        print("Activated")
+        correct_answer.grid(row=5, column=5)
     else:
-        print("Fail, please retry")
+        incorrect_answer.grid(row=5, column=5)
 
 
 userCheck = Button(logonwin, text="Logon", command=checkCredentials, font=5)
