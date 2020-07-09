@@ -1,5 +1,8 @@
 from tkinter import *
 
+in_correct=0
+correct=0
+
 logonwin = Tk()
 username = "github_online_repo"
 password = "pythonissohard10"
@@ -21,6 +24,8 @@ incorrect_answer = Label(logonwin, text="Fail, please retry", fg="red")
 
 def checkCredentials():
     global score
+    global correct
+    global in_correct
     score = 0
 
     if username_inn.get() == username:
@@ -34,11 +39,24 @@ def checkCredentials():
         print(" ")
 
     if score == 2:
-        correct_answer.grid(row=5, column=5)
+        if in_correct == 1:
+            incorrect_answer.destroy()
+            in_correct = 0
+            correct_answer.grid(row=5, column=5)
+            correct = 1
+        else:
+            correct_answer.grid(row=5, column=5)
+            correct = 1
     else:
-        incorrect_answer.grid(row=5, column=5)
+        if correct == 1:
+            correct_answer.destroy()
+            correct = 0
+            incorrect_answer.grid(row=5, column=5)
+            in_correct = 1
+        else:
+            incorrect_answer.grid(row=5, column=5)
+            in_correct = 1
 
 
 userCheck = Button(logonwin, text="Logon", command=checkCredentials, font=5)
 userCheck.grid(row=1, column=2)
-
